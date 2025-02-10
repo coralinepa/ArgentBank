@@ -66,42 +66,38 @@ const userSlice = createSlice({
   name: "user",
   initialState: {
     user: null,
-    loading: false,
-    error: null,
+    status: "idle", // idle | loading | succeeded | failed
+    error: null, // Contiendra les messages d'erreur
   },
-  reducers: {
-    setUser(state, action) {
-      state.user = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getUserAsync.pending, (state) => {
-        state.loading = true;
-        state.error = null;
+        state.status = "loading";
+        state.error = null; // Réinitialise les erreurs
       })
       .addCase(getUserAsync.fulfilled, (state, action) => {
-        state.loading = false;
         state.user = action.payload;
+        state.status = "succeeded";
+        state.error = null; // Réinitialise les erreurs
       })
       .addCase(getUserAsync.rejected, (state, action) => {
-        state.loading = false;
+        state.status = "failed";
         state.error = action.payload;
       })
       .addCase(updateUserAsync.pending, (state) => {
-        state.loading = true;
+        state.status = "loading";
         state.error = null;
       })
       .addCase(updateUserAsync.fulfilled, (state, action) => {
-        state.loading = false;
+        state.status = "succeeded";
         state.user = action.payload;
       })
       .addCase(updateUserAsync.rejected, (state, action) => {
-        state.loading = false;
+        state.status = "failed";
         state.error = action.payload;
       });
   },
 });
 
-export const { setUser } = userSlice.actions;
 export default userSlice.reducer;

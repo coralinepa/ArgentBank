@@ -10,6 +10,8 @@ import Header from "../components/Header";
 import Button from "../components/Button";
 import Footer from "../components/Footer";
 
+import Error from "../components/Error";
+
 const Main = styled.main`
   flex: 1;
   background-color: #12002b;
@@ -67,14 +69,13 @@ function Login() {
         <Content>
           <AvatarIcon width={32} height={32} />
           <h1>Sign In</h1>
-          {auth.status === "failed" && (
-            <p style={{ color: "red" }}>{auth.error}</p>
-          )}
+          {auth.status === "failed" && <Error>{auth.error}</Error>}
           <form onSubmit={handleSubmit}>
             <Wrapper>
               <Label htmlFor="email">Username</Label>
               <Input
-                type="text"
+                required
+                type="email"
                 id="email"
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -82,6 +83,7 @@ function Login() {
             <Wrapper>
               <Label htmlFor="password">Password</Label>
               <Input
+                required
                 type="password"
                 id="password"
                 onChange={(e) => setPassword(e.target.value)}
@@ -95,7 +97,6 @@ function Login() {
               {auth.status === "loading" ? "Logging in..." : "Login"}
             </Button>
           </form>
-          {auth.error && <p style={{ color: "red" }}>{auth.error}</p>}
         </Content>
       </Main>
       <Footer />

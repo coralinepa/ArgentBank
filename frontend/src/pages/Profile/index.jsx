@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 
-import VisuallyHidden from "../components/VisuallyHidden";
-import Account from "../components/Account";
+import VisuallyHidden from "../../components/VisuallyHidden";
+import Account from "../../components/Account";
 
 const Main = styled.main`
   flex: 1;
