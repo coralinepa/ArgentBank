@@ -2,7 +2,9 @@ import { useEffect } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getUserAsync } from "../features/user/userSlice"; // Ajouter updateUserAsync
+import { getUserAsync } from "../../features/user/userSlice"; // Ajouter updateUserAsync
+
+import Error from "../../components/Error";
 
 const Button = styled(NavLink)`
   border-color: #00bc77;
@@ -10,21 +12,22 @@ const Button = styled(NavLink)`
   color: #fff;
   font-weight: bold;
   padding: 10px;
+  text-decoration: none;
 `;
 
 function User() {
   const dispatch = useDispatch();
-  const { user, loading, error } = useSelector((state) => state.user);
+  const { user, status, error } = useSelector((state) => state.user);
 
   useEffect(() => {
     dispatch(getUserAsync());
   }, [dispatch]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
-
   return (
     <>
+      {status === "loading" && <p>Loading...</p>}
+      {status === "failed" && <Error>{error}</Error>}
+
       <h1>
         Welcome back <br />
         {user?.firstName} {user?.lastName}!

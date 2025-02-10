@@ -48,6 +48,12 @@ const ButtonWrapper = styled.div`
   }
 `;
 
+const StyledButton = styled(Button)`
+  @media (min-width: 720px) {
+    width: 200px;
+  }
+`;
+
 const accounts = [
   {
     id: 1,
@@ -80,7 +86,7 @@ function Account() {
             <Description>{account.type} Balance</Description>
           </Wrapper>
           <ButtonWrapper>
-            <Button>View transactions</Button>
+            <StyledButton>View transactions</StyledButton>
           </ButtonWrapper>
         </Article>
       ))}

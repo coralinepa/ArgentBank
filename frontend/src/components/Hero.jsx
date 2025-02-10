@@ -1,10 +1,11 @@
 import styled from "styled-components";
-import PropTypes from "prop-types";
 
 import VisuallyHidden from "./VisuallyHidden";
 
+import homeBanner from "../assets/bank-tree.jpeg";
+
 const Container = styled.div`
-  background-image: url(${(props) => props.$image});
+  background-image: url(${homeBanner});
   background-position: 0% -50px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -53,10 +54,10 @@ const Description = styled.p`
   }
 `;
 
-function Hero({ image }) {
+function Hero() {
   return (
     <>
-      <Container $image={image}>
+      <Container>
         <Content>
           <VisuallyHidden>Promoted Content</VisuallyHidden>
           <Subtitle>No fees.</Subtitle>
@@ -70,9 +71,5 @@ function Hero({ image }) {
     </>
   );
 }
-
-Hero.propTypes = {
-  image: PropTypes.string,
-};
 
 export default Hero;

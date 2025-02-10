@@ -49,6 +49,8 @@ function NavBar() {
   const { token } = useSelector((state) => state.auth);
   const { user } = useSelector((state) => state.user);
 
+  console.log(user, token);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

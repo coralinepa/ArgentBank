@@ -29,7 +29,6 @@ export const loginUser = createAsyncThunk(
 
 const initialState = {
   token: localStorage.getItem("token") || null,
-  user: null,
   status: "idle", // idle | loading | succeeded | failed
   error: null, // Contiendra les messages d'erreur
 };
@@ -40,7 +39,6 @@ const authSlice = createSlice({
   reducers: {
     logout: (state) => {
       state.token = null;
-      state.user = null;
       state.status = "idle";
       state.error = null;
       localStorage.removeItem("token");
@@ -54,7 +52,6 @@ const authSlice = createSlice({
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.token = action.payload.token;
-        state.user = action.payload.user;
         localStorage.setItem("token", JSON.stringify(action.payload.token));
         state.status = "succeeded";
         state.error = null; // Réinitialise les erreurs

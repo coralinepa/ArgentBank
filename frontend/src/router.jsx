@@ -4,8 +4,8 @@ import ProtectedRoute from "./ProtectedRoute";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
-import User from "./pages/User";
-import EditUser from "./pages/EditUser";
+import User from "./pages/Profile/User";
+import EditUser from "./pages/Profile/EditUser";
 
 const router = createBrowserRouter([
   {
@@ -14,18 +14,10 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: (
-      <ProtectedRoute>
-        <App />
-      </ProtectedRoute>
-    ),
+    element: <App />,
     children: [
       {
-        element: (
-          <ProtectedRoute>
-            <Home />
-          </ProtectedRoute>
-        ),
+        element: <Home />,
         index: true,
       },
       {
