@@ -6,7 +6,7 @@ import homeBanner from "../assets/bank-tree.jpeg";
 
 const Container = styled.div`
   background-image: url(${homeBanner});
-  background-position: 0% -50px;
+  background-position: 0 -50px;
   background-size: cover;
   background-repeat: no-repeat;
   height: 300px;
@@ -39,7 +39,7 @@ const Content = styled.section`
 
 const Subtitle = styled.p`
   font-weight: bold;
-  font-size: 23px;
+  font-size: 1rem;
   margin: 0;
   @media (min-width: 920px) {
     font-size: 1.5rem;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import Navbar from "./NavBar";
 
@@ -12,13 +13,13 @@ const StyledHeader = styled.header`
 function Header() {
   return (
     <StyledHeader>
-      <div>
+      <Link to="/">
         <img
           src="./src/assets/argentBankLogo.png"
           alt="Argent Bank Logo"
           width="200px"
         />
-      </div>
+      </Link>
       <Navbar />
     </StyledHeader>
   );

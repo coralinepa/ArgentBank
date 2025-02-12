@@ -49,7 +49,8 @@ function Features() {
         />
         <Title>You are our #1 priority</Title>
         <FeatureDescription>
-          The more you save with us, the higher your interest rate will be!
+          Need to talk to a representative? You can get in touch through our
+          24/7 chat or through a phone call in less than 5 minutes.
         </FeatureDescription>
       </Card>
       <Card>
@@ -59,8 +60,7 @@ function Features() {
         />
         <Title>More savings means higher rates</Title>
         <FeatureDescription>
-          Need to talk to a representative? You can get in touch through our
-          24/7 chat or through a phone call in less than 5 minutes.
+          The more you save with us, the higher your interest rate will be!
         </FeatureDescription>
       </Card>
       <Card>
